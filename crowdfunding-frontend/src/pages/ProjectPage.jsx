@@ -1,4 +1,5 @@
 import { oneProject } from "../data";
+// import "./ProjectPage.css";
 
 function ProjectPage() {
     return (

@@ -1,12 +1,14 @@
-import { Link, Outlet }
-    from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import "./NavBar.css";
 
 function NavBar() {
     return (
-        <div>
+        <div className="my-navBar">
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/project">Project</Link>
+                <ul>
+                <li><Link className="navButton" to="/">Home</Link></li>
+                <li><Link className="navButton" to="/project">Project</Link></li>
+                </ul>
             </nav>
             <Outlet />
         </div>);

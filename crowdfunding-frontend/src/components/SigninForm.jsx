@@ -1,15 +1,46 @@
-async function SigninForm(username, password, email) {
-    const url = `${import.meta.env.VITE_API_URL}/users`;
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password, email}),
-    });
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import postSignup from "../api/post-signup";
 
+function SigninForm() {
+    const navigate = useNavigate();
+    const [credentials, setCredentials] = useState({ username: "", password: "" });
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setCredentials((prevCredentials) => ({
+            ...prevCredentials,
+            [id]: value,
+        }));
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!credentials.username || !credentials.password) {
+            alert("Please enter both a username and password");
+            return;
+        }
+        if (credentials.username && credentials.password) {
+            postSignup(credentials.username, credentials.password)
+                .then((response) => {
+                    console.log(response);
+                    navigate("/");
+                })
+                
+                ;
+        }
+    };
     return (
-        <p> insert form here </p>)
+        <form className="myForm">
+            <div className="myInput">
+                <label htmlFor="username">Username: </label>
+                <input type="text" id="username" onChange={handleChange} placeholder="Your username" />
+            </div>
+            <div className="myInput">
+                <label htmlFor="password">Password: </label>
+                <input type="password" id="password" onChange={handleChange} placeholder="Your password" />
+            </div>
+            <button type="submit" onClick={handleSubmit}>Sign Up</button>
+        </form>
+    )
 }
 export default SigninForm;
 

@@ -3,7 +3,7 @@ import LogInForm from "../components/LoginForm";
 function LoginPage() {
   return (
     <div>
-      <h1>Join FundASSITA </h1>
+      <h1>Join FundASSISTa </h1>
       <LogInForm />
     </div>
   );

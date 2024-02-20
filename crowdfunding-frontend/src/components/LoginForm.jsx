@@ -1,8 +1,10 @@
 import "./LoginForm.css";
 import { useState } from "react";
 import postLogin from "../api/post-login";
+import { useNavigate } from "react-router-dom";
 
 function LogInForm() {
+    const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ username: "", password: "" });
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -20,7 +22,9 @@ function LogInForm() {
         if (credentials.username && credentials.password) {
             postLogin(credentials.username, credentials.password)
                 .then((response) => {
-                    console.log(response);
+                    // console.log(response);
+                    window.localStorage.setItem("token", response.token);
+                    navigate("/");
                 });
         }
     };

@@ -8,7 +8,7 @@ link here
 ## Homepage
 describe features
 instert image here
-<!-- ![Alt text](url) -->
+![Homepage screenshot](src/assets/images/Screenshot%202024-02-20%20175901.png)
 
 ## Project creation page
 describe features

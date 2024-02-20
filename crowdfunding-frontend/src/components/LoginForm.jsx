@@ -15,17 +15,22 @@ function LogInForm() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if (!credentials.username || !credentials.password) {
-        //     alert("Please enter both a username and password");
-        //     return;
-        // }
+        if (!credentials.username || !credentials.password) {
+            alert("Please enter both a username and password");
+            return;
+        }
         if (credentials.username && credentials.password) {
             postLogin(credentials.username, credentials.password)
                 .then((response) => {
                     // console.log(response);
                     window.localStorage.setItem("token", response.token);
                     navigate("/");
-                });
+                })
+                .catch((error) => {
+                    alert("Invalid username or password");
+                    console.error("Error:", error);
+                })
+                ;
         }
     };
 

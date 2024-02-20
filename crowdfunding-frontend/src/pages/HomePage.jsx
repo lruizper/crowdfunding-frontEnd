@@ -9,11 +9,14 @@ function HomePage() {
     if (error) return <p>Something went wrong: {error.message}</p>;
     console.log({ projects });
     return (
+        <>
+        <h1>Projects</h1>
         <div id="project-list">
-            {projects.map((projectData, key) => {
+                        {projects.map((projectData, key) => {
                 return <ProjectCard key={key} projectData={projectData} />;
             })}
         </div>
+        </>
     );
 }
 export default HomePage;

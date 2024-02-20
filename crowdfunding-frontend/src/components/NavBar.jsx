@@ -7,7 +7,7 @@ function NavBar() {
             <nav>
                 <ul>
                 <li><Link className="navButton" to="/">Home</Link></li>
-                {/* <li><Link className="navButton" to="/project">Project</Link></li> */}
+                <li><Link className="navButton" to="/about">About</Link></li>
                 </ul>
             </nav>
             <Outlet />

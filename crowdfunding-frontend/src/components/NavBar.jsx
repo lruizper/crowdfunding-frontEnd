@@ -8,6 +8,7 @@ function NavBar() {
                 <ul>
                 <li><Link className="navButton" to="/">Home</Link></li>
                 <li><Link className="navButton" to="/about">About</Link></li>
+                <li><Link className="navButton" to="/contact">Contact</Link></li>
                 </ul>
             </nav>
             <Outlet />

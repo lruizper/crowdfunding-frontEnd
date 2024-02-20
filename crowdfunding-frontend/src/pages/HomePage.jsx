@@ -5,9 +5,17 @@ import "./HomePage.css";
 
 function HomePage() {
     const { projects, isLoading, error } = useProjects();
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Something went wrong: {error.message}</p>;
-    console.log({ projects });
+    if (isLoading) return (<>
+    <h1>Projects</h1>
+    <p>Hang on thight, we're loading your content</p>;
+    </>)
+    
+    if (error) 
+    return (<>
+        <h1>Projects</h1>
+        <p>Something went wrong: {error.message}</p>;
+        </>)
+    
     return (
         <>
         <h1>Projects</h1>

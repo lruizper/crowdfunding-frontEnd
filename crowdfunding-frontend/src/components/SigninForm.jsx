@@ -4,7 +4,7 @@ import postSignup from "../api/post-signup";
 
 function SigninForm() {
     const navigate = useNavigate();
-    const [credentials, setCredentials] = useState({ username: "", password: "" });
+    const [credentials, setCredentials] = useState({ username: "", password: "" , email: ""});
     const handleChange = (e) => {
         const { id, value } = e.target;
         setCredentials((prevCredentials) => ({
@@ -37,6 +37,10 @@ function SigninForm() {
             <div className="myInput">
                 <label htmlFor="password">Password: </label>
                 <input type="password" id="password" onChange={handleChange} placeholder="Your password" />
+            </div>
+            <div className="myInput">
+                <label htmlFor="email">Email: </label>
+                <input type="email" id="email" onChange={handleChange} placeholder="Your email" />
             </div>
             <button type="submit" onClick={handleSubmit}>Sign Up</button>
         </form>
